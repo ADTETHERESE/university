@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="classe_form_view" model="ir.ui.view">
+            <field name="name">university.classe.form</field>
+            <field name="model">university.classe</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+
+                        <group>
+                            <field name="libellet"/>
+                            <field name="code"/>
+                            <field name="effectif"/>
+
+                        </group>
+                        <notebook>
+                            <page string="liste des eleves">
+
+                                <field name="student_ids" />
+
+                            </page>
+                            <page string="liste des eleves">
+
+                                <field name="female_student_ids"/>
+
+                            </page>
+                            <page string="liste des matieres">
+
+                                <field name="matiere_ids"/>
+
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="classe_tree_view" model="ir.ui.view">
+            <field name="name">university.classe.tree</field>
+            <field name="model">university.classe</field>
+            <field name="arch" type="xml">
+                <tree string="ALL Classes">
+                    <field name="libellet"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="classe_act_window" model="ir.actions.act_window">
+            <field name="name">Windows Classe</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">university.classe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Liste des Classes" id="classe_menu_cat" parent="university_root" action="classe_act_window"/>
+
+    </data>
+</odoo>

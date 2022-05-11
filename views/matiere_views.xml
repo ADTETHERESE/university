@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="matiere_form_view" model="ir.ui.view">
+            <field name="name">university.matiere.form</field>
+            <field name="model">university.matiere</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+
+                        <group>
+                            <field name="Libellet_matiere"/>
+                            <field name="code_matiere"/>
+                            <field name="classe_ids" widget="many2many_tags"/>
+
+                        </group>
+<!--                        <notebook>-->
+<!--                            <page string="liste des eleves">-->
+
+<!--                                -->
+
+<!--                            </page>-->
+<!--                        </notebook>-->
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="matiere_tree_view" model="ir.ui.view">
+            <field name="name">university.matiere.tree</field>
+            <field name="model">university.matiere</field>
+            <field name="arch" type="xml">
+                <tree string="ALL Classes">
+                    <field name="Libellet_matiere"/>
+                    <field name="code_matiere"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="matiere_act_window" model="ir.actions.act_window">
+            <field name="name">Windows matiere</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">university.matiere</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Liste des Matiere" id="matiere_menu_cat" parent="university_root" action="matiere_act_window"/>
+
+    </data>
+</odoo>
